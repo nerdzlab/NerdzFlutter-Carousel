@@ -39,7 +39,6 @@ class CenteredPageView extends StatefulWidget {
     this.clipBehavior = Clip.hardEdge,
     this.hitTestBehavior = HitTestBehavior.opaque,
     this.scrollBehavior,
-    this.padEnds = true,
     this.showIndicator = true,
     this.indicatorStyle = const IndicatorStyle(),
   })  : childrenDelegate = SliverChildListDelegate(children),
@@ -87,7 +86,6 @@ class CenteredPageView extends StatefulWidget {
     this.clipBehavior = Clip.hardEdge,
     this.hitTestBehavior = HitTestBehavior.opaque,
     this.scrollBehavior,
-    this.padEnds = true,
     this.showIndicator = true,
     this.indicatorStyle = const IndicatorStyle(),
   }) : childrenDelegate = SliverChildBuilderDelegate(
@@ -122,7 +120,6 @@ class CenteredPageView extends StatefulWidget {
     this.clipBehavior = Clip.hardEdge,
     this.hitTestBehavior = HitTestBehavior.opaque,
     this.scrollBehavior,
-    this.padEnds = true,
     this.showIndicator = true,
     this.indicatorStyle = const IndicatorStyle(),
   }) : assert(childrenDelegate.estimatedChildCount != null,
@@ -226,17 +223,6 @@ class CenteredPageView extends StatefulWidget {
   /// The [ScrollBehavior] of the inherited [ScrollConfiguration] will be
   /// modified by default to not apply a [Scrollbar].
   final ScrollBehavior? scrollBehavior;
-
-  /// Whether to add padding to both ends of the list.
-  ///
-  /// If this is set to true and [PageController.viewportFraction] < 1.0, padding will be added
-  /// such that the first and last child slivers will be in the center of
-  /// the viewport when scrolled all the way to the start or end, respectively.
-  ///
-  /// If [PageController.viewportFraction] >= 1.0, this property has no effect.
-  ///
-  /// This property defaults to true.
-  final bool padEnds;
 
   /// Whether show indicator under PageView.
   final bool showIndicator;
@@ -353,7 +339,6 @@ class _CenteredPageViewState extends State<CenteredPageView> {
                     SliverFillViewportCentered(
                       viewportFraction: _controller.viewportFraction,
                       delegate: widget.childrenDelegate,
-                      padEnds: widget.padEnds,
                     ),
                   ],
                 );

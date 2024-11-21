@@ -28,7 +28,6 @@ class SliverFillViewportCentered extends StatelessWidget {
     super.key,
     required this.delegate,
     this.viewportFraction = 1.0,
-    this.padEnds = true,
   }) : assert(viewportFraction > 0.0);
 
   /// The fraction of the viewport that each child should fill in the main axis.
@@ -38,19 +37,6 @@ class SliverFillViewportCentered extends StatelessWidget {
   /// the viewport in the main axis.
   final double viewportFraction;
 
-  /// Whether to add padding to both ends of the list.
-  ///
-  /// If this is set to true and [viewportFraction] < 1.0, padding will be added
-  /// such that the first and last child slivers will be in the center of the
-  /// viewport when scrolled all the way to the start or end, respectively. You
-  /// may want to set this to false if this [SliverFillViewportCentered] is not the only
-  /// widget along this main axis, such as in a [CustomScrollView] with multiple
-  /// children.
-  ///
-  /// If [viewportFraction] is greater than one, this option has no effect.
-  /// Defaults to true.
-  final bool padEnds;
-
   /// {@macro flutter.widgets.SliverMultiBoxAdaptorWidget.delegate}
   final SliverChildDelegate delegate;
 
@@ -58,8 +44,7 @@ class SliverFillViewportCentered extends StatelessWidget {
   Widget build(BuildContext context) {
     return _SliverFractionalPaddingCentered(
       elementCount: delegate.estimatedChildCount ?? 0,
-      viewportFraction:
-          padEnds ? clampDouble(1 - viewportFraction, 0, 1) / 2 : 0,
+      viewportFraction: clampDouble(1 - viewportFraction, 0, 1) / 2,
       sliver: _SliverFillViewportCenteredRenderObjectWidget(
         viewportFraction: viewportFraction,
         delegate: delegate,

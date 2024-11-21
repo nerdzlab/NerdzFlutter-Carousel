@@ -12,9 +12,31 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.white,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              height: 200,
+              child: PageView.builder(
+                itemCount: 9,
+                physics: const BouncingScrollPhysics(),
+                controller: PageController(viewportFraction: 0.8),
+                padEnds: false,
+                itemBuilder: (context, index) => Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    decoration: const BoxDecoration(color: Colors.amber),
+                    child: Align(
+                      child: Text(
+                        'Page $index',
+                        style: const TextStyle(fontSize: 16.0),
+                      ),
+                    )),
+              ),
+            ),
+            const SizedBox(height: 100),
             SizedBox(
               height: 200,
               child: CenteredPageView.builder(

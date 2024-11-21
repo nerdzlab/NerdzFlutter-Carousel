@@ -1,39 +1,46 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Carousel
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+This package provides a custom implementation of the `CenteredPageView` widget that behaves like the default `PageView`, but with `padEnds: false` while centered elements, and an optional dot indicator.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+## Difference
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Default `PageView`. Elements align based on scroll position but are not centered.
+![Default PageView](https://github.com/user-attachments/assets/312fe08b-6792-4907-99fb-104d01c3bf02)
+
+Package `CenteredPageView`. Items snap to a centered position.
+![Centered PageView](https://github.com/user-attachments/assets/d5863f8e-16e6-4c2e-a390-048bea6ab581)
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+- A `CenteredPageView` widget that centers items while retaining the default properties of the `PageView`.
+- Customizable optional dot indicator below the `CenteredPageView`.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Here's how to implement `CenteredPageView` in your Flutter app:
 
 ```dart
-const like = 'sample';
+CenteredPageView.builder(
+  itemCount: 9,
+  controller: PageController(viewportFraction: 0.8),
+  showIndicator: true, // Set to 'false' if you do not want to display the dot indicator
+  indicatorStyle: const IndicatorStyle(
+      indicatorWidth: 100, unselectedSize: Size(8, 8)),
+  itemBuilder: (context, index) => Container(
+      width: MediaQuery.of(context).size.width,
+      margin: const EdgeInsets.symmetric(horizontal: 5.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      decoration: const BoxDecoration(color: Colors.amber),
+      child: Align(
+        child: Text(
+          'Page $index',
+          style: const TextStyle(fontSize: 16.0),
+        ),
+      )),
+),
 ```
 
-## Additional information
+Customizing the Dot Indicator
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+- The `showIndicator` property is a boolean that controls the visibility of the dot indicator.
+- The `indicatorStyle` property allows you to customize the appearance of the dot indicator.
