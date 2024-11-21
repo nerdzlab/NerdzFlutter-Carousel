@@ -1,7 +1,4 @@
 library carousel_nerdzlab;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/centered_page_view.dart' show CenteredPageView;
+export 'src/indicator_style.dart';
