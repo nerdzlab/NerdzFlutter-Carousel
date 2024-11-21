@@ -1,7 +1,7 @@
 name: carousel_nerdzlab
-description: "A new Flutter package project."
-version: 0.0.1
-homepage:
+description: "Custom PageView with edge-to-edge elements and centered alignment"
+version: 1.0.0
+repository: https://github.com/nerdzlab/NerdzFlutter-Carousel
 
 environment:
   sdk: ^3.5.2
