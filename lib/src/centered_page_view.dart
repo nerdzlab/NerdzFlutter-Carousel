@@ -1,9 +1,9 @@
 import 'package:carousel_nerdzlab/src/centered_sliver.dart';
 import 'package:carousel_nerdzlab/src/indicator_style.dart';
+import 'package:carousel_nerdzlab/src/page_view_indicator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:page_view_dot_indicator/page_view_dot_indicator.dart';
 
 class CenteredPageView extends StatefulWidget {
   /// Creates a scrollable list that works page by page from an explicit [List]
@@ -365,21 +365,24 @@ class _CenteredPageViewState extends State<CenteredPageView> {
           Padding(
             padding:
                 EdgeInsets.only(top: widget.indicatorStyle.indicatorPadding),
-            child: PageViewDotIndicator(
-              currentItem: _lastReportedPage,
-              count: widget.childrenDelegate.estimatedChildCount!,
-              unselectedColor: widget.indicatorStyle.unselectedColor,
-              selectedColor: widget.indicatorStyle.selectedColor,
-              size: widget.indicatorStyle.size,
-              unselectedSize: widget.indicatorStyle.unselectedSize,
-              duration: widget.indicatorStyle.duration,
-              margin: widget.indicatorStyle.margin,
-              padding: widget.indicatorStyle.padding,
-              alignment: widget.indicatorStyle.alignment,
-              fadeEdges: widget.indicatorStyle.fadeEdges,
-              boxShape: widget.indicatorStyle.boxShape,
-              borderRadius: widget.indicatorStyle.borderRadius,
-              onItemClicked: widget.indicatorStyle.onItemClicked,
+            child: SizedBox(
+              width: widget.indicatorStyle.indicatorWidth,
+              child: PageViewDotIndicator(
+                currentItem: _lastReportedPage,
+                count: widget.childrenDelegate.estimatedChildCount!,
+                unselectedColor: widget.indicatorStyle.unselectedColor,
+                selectedColor: widget.indicatorStyle.selectedColor,
+                size: widget.indicatorStyle.size,
+                unselectedSize: widget.indicatorStyle.unselectedSize,
+                duration: widget.indicatorStyle.duration,
+                margin: widget.indicatorStyle.margin,
+                padding: widget.indicatorStyle.padding,
+                alignment: widget.indicatorStyle.alignment,
+                fadeEdges: widget.indicatorStyle.fadeEdges,
+                boxShape: widget.indicatorStyle.boxShape,
+                borderRadius: widget.indicatorStyle.borderRadius,
+                onItemClicked: widget.indicatorStyle.onItemClicked,
+              ),
             ),
           ),
       ],

@@ -18,18 +18,21 @@ class MainApp extends StatelessWidget {
             SizedBox(
               height: 200,
               child: CenteredPageView.builder(
-                itemCount: 5,
+                itemCount: 9,
                 physics: const BouncingScrollPhysics(),
                 controller: PageController(viewportFraction: 0.8),
-                indicatorStyle: const IndicatorStyle(),
+                indicatorStyle: const IndicatorStyle(
+                    indicatorWidth: 100, unselectedSize: Size(8, 8)),
                 itemBuilder: (context, index) => Container(
                     width: MediaQuery.of(context).size.width,
                     margin: const EdgeInsets.symmetric(horizontal: 5.0),
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     decoration: const BoxDecoration(color: Colors.amber),
-                    child: Text(
-                      'text $index',
-                      style: const TextStyle(fontSize: 16.0),
+                    child: Align(
+                      child: Text(
+                        'Page $index',
+                        style: const TextStyle(fontSize: 16.0),
+                      ),
                     )),
               ),
             ),

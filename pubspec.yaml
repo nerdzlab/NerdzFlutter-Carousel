@@ -10,7 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  page_view_dot_indicator: ^2.3.0
 
 dev_dependencies:
   flutter_test:

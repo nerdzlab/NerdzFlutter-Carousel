@@ -15,6 +15,7 @@ class IndicatorStyle {
     this.indicatorPadding = 16,
     this.borderRadius,
     this.onItemClicked,
+    this.indicatorWidth,
   }) : assert(
           boxShape != BoxShape.circle || borderRadius == null,
           'Border radius must be provided when using a non-circle shape',
@@ -63,4 +64,7 @@ class IndicatorStyle {
 
   /// Callback called when item is clicked.
   final void Function(int index)? onItemClicked;
+
+  /// Width of indicator.
+  final double? indicatorWidth;
 }
