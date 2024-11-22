@@ -4,11 +4,11 @@ This package provides a custom implementation of the `CenteredPageView` widget t
 
 ## Difference
 
-Default `PageView`. Elements align based on scroll position but are not centered.
-![Default PageView](https://github.com/user-attachments/assets/312fe08b-6792-4907-99fb-104d01c3bf02)
-
 Package `CenteredPageView`. Items snap to a centered position.
 ![Centered PageView](https://github.com/user-attachments/assets/d5863f8e-16e6-4c2e-a390-048bea6ab581)
+
+Default `PageView`. Elements align based on scroll position but are not centered.
+![Default PageView](https://github.com/user-attachments/assets/312fe08b-6792-4907-99fb-104d01c3bf02)
 
 ## Features
 
